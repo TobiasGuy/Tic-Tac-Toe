@@ -5,3 +5,7 @@
 # 1
 Initial commit done, repo made
 TODO: create initial plan (done)
+
+# 2
+Finalised initial plan
+Copied plan into new file plan.md so it doesn't get lost and can be referenced later when the code gets messier
