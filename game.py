@@ -24,6 +24,7 @@
 
 # Update 'board' with new inputs and display
     # Store X or O depending on player's turn
+    # Randomise on game start? Also display who's turn it currently is
 
 # Check for 3 in a row
     # Probably a function for checking each direction: Vertical, Horizontal, Diagonal
