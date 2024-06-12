@@ -26,3 +26,7 @@ Validation:
     Check if location on board is already taken
 Note: thinking I might not need board_update() function at this point, will keep the definition for now but not add anything in it
 Small fix: Added .strip() to gamemode selection input
+
+# 3 Small touches
+Drew out board display in comments inside display_board() function
+Realised I need to adjust the board[choice] to board[choice - 1] because array is 0 index

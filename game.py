@@ -31,7 +31,6 @@ def main():
             print("Invalid input")
             continue
     
-
     # Prompt user for input for choosing position
     # Validate input, make sure it's good, if not then reprompt
         # Input position between 1-9 (maybe coordinates didn't decide yet)
@@ -76,6 +75,19 @@ def display_board():
         # Do this with coordinates? or 1-9? Maybe for bigger scale coordinates would be good but might not be necessary for this
         # Choose between 1 array vs multi-dimensional array to store values
             # I'll use a 2d array think that might make things nicer
+    # |   |   |   |                         |   |   |   |
+    # | X | O | X |                         |[0]|[1]|[2]|
+    # |   |   |   |                         |   |   |   |
+    # |---|---|---|                         |---|---|---|
+    # |   |   |   |                         |   |   |   |
+    # | X | O | X |                         |[3]|[4]|[5]|
+    # |   |   |   |                         |   |   |   |
+    # |---|---|---|                         |---|---|---|
+    # |   |   |   |                         |   |   |   |
+    # | X | O | X |                         |[6]|[7]|[8]|
+    # |   |   |   |                         |   |   |   |
+    # |---|---|---|                         |---|---|---|
+    
     return
 
 def ai_move():
