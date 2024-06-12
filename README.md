@@ -13,3 +13,7 @@ Copied plan into new file plan.md so it doesn't get lost and can be referenced l
 # 3
 Reorganised comments in game.py to put sections in order
 Created functions that I might need for each section
+
+#### 2024-06-12
+# 1 Gamemode Selection
+Coded the gamemode selection input section and validation

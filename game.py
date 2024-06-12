@@ -1,16 +1,35 @@
 # Import libraries if necessary:
 import random
+import sys
 
 # Variables to initialise:
-gamemode = 0 # Use 0, 1, 2 for main menu, single player, multi-player respectively
-player_turn = ""
+gamemode = "0" # Use 0, 1, 2 for main menu, single player, multi-player respectively
+player_turn = 1
 
 def main():
+    # Randomize the starting turn
+    player_turn = random.randint(1, 2)
+    gamemode = "0"
     # Prompt user to choose between single player (vs ai), or 2 player, or let them exit
     # Validate input, make sure it's good, if not then reprompt
         # Should be pretty simple
         # Type 1 for single, 2 for multi, q for quit?
         # Check that user input matches one of the inputs you want
+    while True:
+        try:
+            gamemode = input("Enter 1 for single player, 2 for multi player, or q to quit")
+        except EOFError:
+            sys.exit("File exited")
+        if gamemode == "q":
+            sys.exit("Quitting game...")
+        elif gamemode == "1":
+            break
+        elif gamemode == "2":
+            break
+        else:
+            print("Invalid input")
+            continue
+    
 
     # Prompt user for input for choosing position
     # Validate input, make sure it's good, if not then reprompt
@@ -59,7 +78,8 @@ def game_end():
     return
 
 
-main()
+if __name__ == "__main__":
+    main()
 
 # Features for later:
     # Leaving these things alone for now
