@@ -30,3 +30,7 @@ Small fix: Added .strip() to gamemode selection input
 # 3 Small touches
 Drew out board display in comments inside display_board() function
 Realised I need to adjust the board[choice] to board[choice - 1] because array is 0 index
+
+# 4 Display Board Function
+Coded display_board() function
+Also added function calls switch_turn, display_board, check_board.

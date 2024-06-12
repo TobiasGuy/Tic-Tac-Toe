@@ -5,12 +5,14 @@ import sys
 # Variables to initialise:
 gamemode = "0" # Use 0, 1, 2 for main menu, single player, multi-player respectively
 player_turn = 1
+board = []
 
 def main():
     # Randomize the starting turn
     player_turn = random.randint(1, 2)
     gamemode = "0"
-    board = []
+    for i in range(0, 8):
+        board[i] = " "
     # Prompt user to choose between single player (vs ai), or 2 player, or let them exit
     # Validate input, make sure it's good, if not then reprompt
         # Should be pretty simple
@@ -55,15 +57,16 @@ def main():
         # Add the choice to the board
         if player_turn == 1:
             board[choice - 1] = "X"
-            player_turn = 2
             break
         elif player_turn == 2:
             board[choice - 1] = "O"
-            player_turn = 1
             break
         else:
             sys.exit("Something went wrong")
-
+        
+    switch_turn()
+    display_board()
+    check_board()
 
     
     return
@@ -74,7 +77,7 @@ def display_board():
         # Display after prompt, before win/loss, and reprompt if the game is not over
         # Do this with coordinates? or 1-9? Maybe for bigger scale coordinates would be good but might not be necessary for this
         # Choose between 1 array vs multi-dimensional array to store values
-            # I'll use a 2d array think that might make things nicer
+            # I'll use a 2d array think that might make things nicer -- nvm
     # |   |   |   |                         |   |   |   |
     # | X | O | X |                         |[0]|[1]|[2]|
     # |   |   |   |                         |   |   |   |
@@ -87,6 +90,24 @@ def display_board():
     # | X | O | X |                         |[6]|[7]|[8]|
     # |   |   |   |                         |   |   |   |
     # |---|---|---|                         |---|---|---|
+    empty_line = "|   |   |   |"
+    filled_line = "|---|---|---|"
+    line_one = "| " + board[0] + " | " + board[1] + " | " + board[2] + " |"
+    line_two = "| " + board[3] + " | " + board[4] + " | " + board[5] + " |"
+    line_three = "| " + board[6] + " | " + board[7] + " | " + board[8] + " |"
+
+    print(empty_line)
+    print(line_one)
+    print(empty_line)
+    print(filled_line)
+    print(empty_line)
+    print(line_two)
+    print(empty_line)
+    print(filled_line)
+    print(empty_line)
+    print(line_three)
+    print(empty_line)
+    print(filled_line)
 
     return
 
@@ -114,6 +135,10 @@ def check_board():
 def switch_turn():
     # Keep track of who's turn it is, X and O respectively
         # Have a variable that switches after each turn is taken
+    if player_turn == 1:
+        player_turn = 2
+    elif player_turn == 2:
+        player_turn = 1
     return
 
 def game_end():
