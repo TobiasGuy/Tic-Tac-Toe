@@ -49,16 +49,16 @@ def main():
             print("Number out of range")
             continue
         # Check if space is already taken
-        if board[choice] == "X" or board[choice] == "O":
+        if board[choice - 1] == "X" or board[choice - 1] == "O":
             print("Space already taken")
             continue
         # Add the choice to the board
         if player_turn == 1:
-            board[choice] = "X"
+            board[choice - 1] = "X"
             player_turn = 2
             break
         elif player_turn == 2:
-            board[choice] = "O"
+            board[choice - 1] = "O"
             player_turn = 1
             break
         else:
@@ -87,7 +87,7 @@ def display_board():
     # | X | O | X |                         |[6]|[7]|[8]|
     # |   |   |   |                         |   |   |   |
     # |---|---|---|                         |---|---|---|
-    
+
     return
 
 def ai_move():
