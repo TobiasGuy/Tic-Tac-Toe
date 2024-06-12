@@ -10,6 +10,7 @@ def main():
     # Randomize the starting turn
     player_turn = random.randint(1, 2)
     gamemode = "0"
+    board = []
     # Prompt user to choose between single player (vs ai), or 2 player, or let them exit
     # Validate input, make sure it's good, if not then reprompt
         # Should be pretty simple
@@ -17,7 +18,7 @@ def main():
         # Check that user input matches one of the inputs you want
     while True:
         try:
-            gamemode = input("Enter 1 for single player, 2 for multi player, or q to quit")
+            gamemode = input("Enter 1 for single player, 2 for multi player, or q to quit").strip()
         except EOFError:
             sys.exit("File exited")
         if gamemode == "q":
@@ -35,6 +36,37 @@ def main():
     # Validate input, make sure it's good, if not then reprompt
         # Input position between 1-9 (maybe coordinates didn't decide yet)
         # Check that the square doesn't already have an X or O in it!
+    while True:
+        try:
+            choice = input("Choose a position from 1-9:").strip()
+            choice = int(choice)
+        except ValueError:
+            print("Must input a number")
+            continue
+        except EOFError:
+            sys.exit("File exited")
+        # Check number is in range
+        if choice > 9 or choice < 1:
+            print("Number out of range")
+            continue
+        # Check if space is already taken
+        if board[choice] == "X" or board[choice] == "O":
+            print("Space already taken")
+            continue
+        # Add the choice to the board
+        if player_turn == 1:
+            board[choice] = "X"
+            player_turn = 2
+            break
+        elif player_turn == 2:
+            board[choice] = "O"
+            player_turn = 1
+            break
+        else:
+            sys.exit("Something went wrong")
+
+
+    
     return
 
 def display_board():
@@ -54,7 +86,7 @@ def ai_move():
         # Make sure ai actually moves on its turn
     return
 
-def board_update():
+def board_update(): # Might not need this
     # Update 'board' with new inputs and display
         # Store X or O depending on player's turn
         # Randomise on game start? Also display who's turn it currently is

@@ -17,3 +17,12 @@ Created functions that I might need for each section
 #### 2024-06-12
 # 1 Gamemode Selection
 Coded the gamemode selection input section and validation
+
+# 2 Position Selection
+Coded the position selection input section
+Validation:
+    Check if input is an integer
+    Check if input is within range of board
+    Check if location on board is already taken
+Note: thinking I might not need board_update() function at this point, will keep the definition for now but not add anything in it
+Small fix: Added .strip() to gamemode selection input
