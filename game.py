@@ -1,6 +1,7 @@
 # Import libraries if necessary:
 import random
 import sys
+from time import sleep
 
 # Variables to initialise:
 gamemode = "0" # Use 0, 1, 2 for main menu, single player, multi-player respectively
@@ -11,16 +12,16 @@ def main():
     # Randomize the starting turn
     player_turn = random.randint(1, 2)
     gamemode = "0"
-    for i in range(0, 8):
-        board[i] = " "
+    for _ in range(0, 8):
+        board.append(" ")
     # Prompt user to choose between single player (vs ai), or 2 player, or let them exit
     # Validate input, make sure it's good, if not then reprompt
         # Should be pretty simple
         # Type 1 for single, 2 for multi, q for quit?
         # Check that user input matches one of the inputs you want
-    while True:
+    while True: # Maybe put this in a function
         try:
-            gamemode = input("Enter 1 for single player, 2 for multi player, or q to quit").strip()
+            gamemode = input("Enter 1 for single player, 2 for multi player, or q to quit ").strip()
         except EOFError:
             sys.exit("File exited")
         if gamemode == "q":
@@ -38,8 +39,12 @@ def main():
         # Input position between 1-9 (maybe coordinates didn't decide yet)
         # Check that the square doesn't already have an X or O in it!
     while True:
+        if player_turn == 1:
+            print("Player 1 / X's turn to move")
+        else:
+            print("Player 2 / O's turn to move")
         try:
-            choice = input("Choose a position from 1-9:").strip()
+            choice = input("Choose a position from 1-9: ").strip()
             choice = int(choice)
         except ValueError:
             print("Must input a number")
@@ -62,14 +67,14 @@ def main():
             board[choice - 1] = "O"
             break
         else:
-            sys.exit("Something went wrong")
+            sys.exit("Player turn out of bounds. Something went wrong")
         
     switch_turn()
     display_board()
     check_board()
 
     
-    return
+
 
 def display_board():
     # Display 'board' that you're playing on
