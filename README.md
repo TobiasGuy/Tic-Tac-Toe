@@ -53,3 +53,11 @@ Nested most of the main function in a while True loop.
 Thinking about separating more things into different functions. Choose gamemode, choose position? Looks pretty ugly with so many nested while True's
 Added board as argument to check_board
 Added print(filled_line) to the top of the display_board function. Completes the board
+
+#### 4 Fixing plan and backlogging
+Self note: Should keep track of how the plan evolves better. Sometimes I do a commit then I'm like: now what do I do? Maybe sign off on some sections as complete, continue updating plan.md?
+Making this commit about fixing the plan now
+Another self note: I wish I could colour code these sections in the plan. Maybe could make a VSCode extension for this. Or use a different program for taking notes? But it's nice to have this stuff open in VSCode along with my program. Decided to make my headers in ALL CAPS for now
+Separated into sections as follows: # TODO, # TEST PHASE, # COMPLETED + TESTED.
+Sections are pretty self explanatory. Putting everything in the test phase section until I'm in the finishing touches on the program, this is like a "final check" (code is made, but not signed off on yet)
+Fixed plan
