@@ -1,18 +1,12 @@
 # TODO
 
+## Clean up check_board
+    # Make this into 3 separate functions for row/column/diagonal
+
 ## Create ai enemy 
     # Only active when it's single player
     # Probably make a variable that changes when you want it to be active or not.
     # Remember to reset this value on new game -- maybe make a list of values to reset?
-
-## Check for 3 in a row
-    # Probably a function for checking each direction: Vertical, Horizontal, Diagonal
-
-## Check for whole board being full
-    # Loop through each position and if they're all full, call a draw
-
-## After game is done, print winner, prompt user asking if they want to play again or exit
-    # Maybe a big while true loop only for this reason that breaks if you want to exit and continues otherwise?
 
 ## Clean up code / main function
     # Split more things into functions to make main function more readable
@@ -45,7 +39,14 @@
     # Store X or O depending on player's turn
     # Randomise on game start? Also display who's turn it currently is
 
+## Check for 3 in a row
+    # Probably a function for checking each direction: Vertical, Horizontal, Diagonal
 
+## Check for whole board being full
+    # Loop through each position and if they're all full, call a draw
+
+## After game is done, print winner, prompt user asking if they want to play again or exit
+    # Maybe a big while true loop only for this reason that breaks if you want to exit and continues otherwise?
 
 
 # COMPLETED + TESTED

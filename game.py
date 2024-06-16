@@ -81,7 +81,7 @@ def main():
 
         print("Game over! " + result)
         sleep(2)
-        print("-------NEW GAME-------")
+        print("---------NEW GAME---------")
     
 
 
@@ -144,19 +144,43 @@ def board_update(): # Might not need this
 def check_board(board):
 
     # Check for 3 in a row
-        # Check rows: 
-            # board[0] == board[1] == board[2]
-            # board[3] == board[4] == board[5]
-            # board[6] == board[7] == board[8]
-        
-        # Check columns:
-            # board[0] == board[3] == board[6]
-            # board[1] == board[4] == board[7]
-            # board[2] == board[5] == board[8]
+    # Check rows: 
+    if board[0] == board[1] == board[2] == "X":
+        return("Player 1 wins!")
+    elif board[0] == board[1] == board[2] == "O":
+        return("Player 2 wins!")
+    elif board[3] == board[4] == board[5] == "X":
+        return("Player 1 wins!")
+    elif board[3] == board[4] == board[5] == "O":
+        return("Player 2 wins!")
+    elif board[6] == board[7] == board[8] == "X":
+        return("Player 1 wins!")
+    elif board[6] == board[7] == board[8] == "O":
+        return("Player 2 wins!")
+    
+    # Check columns:
+    if board[0] == board[3] == board[6] == "X":
+        return("Player 1 wins!")
+    elif board[0] == board[3] == board[6] == "O":
+        return("Player 2 wins!")
+    elif board[1] == board[4] == board[7] == "X":
+        return("Player 1 wins!")
+    elif board[1] == board[4] == board[7] == "O":
+        return("Player 2 wins!")
+    elif board[2] == board[5] == board[8] == "X":
+        return("Player 1 wins!")
+    elif board[2] == board[5] == board[8] == "O":
+        return("Player 2 wins!")
 
-        # Check diagonals:
-            # board[0] == board[4] == board[8]
-            # board[2] == board[4] == board[6]
+    # Check diagonals:
+    if board[0] == board[4] == board[8] == "X":
+        return("Player 1 wins!")
+    elif board[0] == board[4] == board[8] == "O":
+        return("Player 2 wins!")
+    elif board[2] == board[4] == board[6] == "X":
+        return("Player 1 wins!")
+    elif board[2] == board[4] == board[6] == "O":
+        return("Player 2 wins!")
 
         # return("Player 1 wins!")
         # return("Player 2 wins!")

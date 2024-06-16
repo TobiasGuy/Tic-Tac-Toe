@@ -73,3 +73,10 @@ Decided this was a bad idea because what if someone wins on the last turn (unlik
 Moved full board to be the last check instead
 Laid out the plan in comments for checking rows, columns, diagonals
 Final return means there is no reason to stop the game so it should continue
+
+#### 7 Check board function part 2
+This section might be quite inefficient for processing time. Something to optimise later.
+Made check row code block
+Made check column code block
+Made check diagonal code block
+Definitely think 3 more functions will be good here
