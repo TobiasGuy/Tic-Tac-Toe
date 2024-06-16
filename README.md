@@ -41,3 +41,9 @@ Display current user's turn
 Added spaces after input() functions to make them look cleaner
 Imported sleep function. Will use at some point
 Fixed bug when clearing the board, trying to access parts of the board list that were not assigned yet. Appended instead of trying to modify
+
+#### 2 Switch turn function, Dsiplay board fix
+Fixed switch turn function. Send player_turn as argument and update player_turn to the returned value
+Added board as argument to display_board
+Changed board creation loop to range(0, 9) because it wasn't long enough
+It's alive! The game runs for 1 turn then ends.

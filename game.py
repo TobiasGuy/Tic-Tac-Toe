@@ -12,7 +12,7 @@ def main():
     # Randomize the starting turn
     player_turn = random.randint(1, 2)
     gamemode = "0"
-    for _ in range(0, 8):
+    for _ in range(0, 9):
         board.append(" ")
     # Prompt user to choose between single player (vs ai), or 2 player, or let them exit
     # Validate input, make sure it's good, if not then reprompt
@@ -69,14 +69,14 @@ def main():
         else:
             sys.exit("Player turn out of bounds. Something went wrong")
         
-    switch_turn()
-    display_board()
+    player_turn = switch_turn(player_turn)
+    display_board(board)
     check_board()
 
     
 
 
-def display_board():
+def display_board(board):
     # Display 'board' that you're playing on
         # Probably make a function for this
         # Display after prompt, before win/loss, and reprompt if the game is not over
@@ -137,14 +137,13 @@ def check_board():
         # Loop through each position and if they're all full, call a draw
     return
 
-def switch_turn():
+def switch_turn(turn):
     # Keep track of who's turn it is, X and O respectively
         # Have a variable that switches after each turn is taken
-    if player_turn == 1:
-        player_turn = 2
-    elif player_turn == 2:
-        player_turn = 1
-    return
+    if turn == 1:
+        return 2
+    elif turn == 2:
+        return 1
 
 def game_end():
     # After game is done, print winner, prompt user asking if they want to play again or exit
