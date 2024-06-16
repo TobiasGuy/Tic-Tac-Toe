@@ -37,7 +37,7 @@ def main():
                 print("Invalid input")
                 continue
         
-        while True: 
+        while True: # Current game loop
             # Prompt user for input for choosing position
             # Validate input, make sure it's good, if not then reprompt
                 # Input position between 1-9 (maybe coordinates didn't decide yet)
@@ -76,9 +76,12 @@ def main():
             player_turn = switch_turn(player_turn)
             display_board(board)
             result = check_board(board)
-            if result == 1 or result == 2:
+            if result == "Player 1 wins!" or result == "Player 2 wins!" or result == "Draw!":
                 break
-     
+
+        print("Game over! " + result)
+        sleep(2)
+        print("-------NEW GAME-------")
     
 
 
@@ -89,6 +92,7 @@ def display_board(board):
         # Do this with coordinates? or 1-9? Maybe for bigger scale coordinates would be good but might not be necessary for this
         # Choose between 1 array vs multi-dimensional array to store values
             # I'll use a 2d array think that might make things nicer -- nvm
+    # |---|---|---|                         |---|---|---|
     # |   |   |   |                         |   |   |   |
     # | X | O | X |                         |[0]|[1]|[2]|
     # |   |   |   |                         |   |   |   |
@@ -142,6 +146,10 @@ def check_board(board):
         # Probably a function for checking each direction: Vertical, Horizontal, Diagonal
     # Check for whole board being full
         # Loop through each position and if they're all full, call a draw
+    
+        # return("Player 1 wins!")
+        # return("Player 2 wins!")
+        # return("Draw!)
     return
 
 def switch_turn(turn):

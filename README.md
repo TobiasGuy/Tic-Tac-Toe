@@ -61,3 +61,8 @@ Another self note: I wish I could colour code these sections in the plan. Maybe 
 Separated into sections as follows: # TODO, # TEST PHASE, # COMPLETED + TESTED.
 Sections are pretty self explanatory. Putting everything in the test phase section until I'm in the finishing touches on the program, this is like a "final check" (code is made, but not signed off on yet)
 Fixed plan
+
+#### 5 Made the skeleton for game ending
+Preemptively made the return values for check_board when the game is supposed to end but commented them out for now
+Made checks accordingly to break out of the while True current game loop
+Added the logic to display the winner and start a new game again after 2 seconds

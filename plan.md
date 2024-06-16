@@ -5,10 +5,6 @@
     # Probably make a variable that changes when you want it to be active or not.
     # Remember to reset this value on new game -- maybe make a list of values to reset?
 
-## Update 'board' with new inputs and display
-    # Store X or O depending on player's turn
-    # Randomise on game start? Also display who's turn it currently is
-
 ## Check for 3 in a row
     # Probably a function for checking each direction: Vertical, Horizontal, Diagonal
 
@@ -44,6 +40,11 @@
 
 ## Keep track of who's turn it is, X and O respectively
     # Have a variable that switches after each turn is taken
+
+## Update 'board' with new inputs and display
+    # Store X or O depending on player's turn
+    # Randomise on game start? Also display who's turn it currently is
+
 
 
 
