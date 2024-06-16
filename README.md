@@ -47,3 +47,9 @@ Fixed switch turn function. Send player_turn as argument and update player_turn 
 Added board as argument to display_board
 Changed board creation loop to range(0, 9) because it wasn't long enough
 It's alive! The game runs for 1 turn then ends.
+
+#### 3 Keep the game running
+Nested most of the main function in a while True loop.
+Thinking about separating more things into different functions. Choose gamemode, choose position? Looks pretty ugly with so many nested while True's
+Added board as argument to check_board
+Added print(filled_line) to the top of the display_board function. Completes the board

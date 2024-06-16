@@ -14,65 +14,71 @@ def main():
     gamemode = "0"
     for _ in range(0, 9):
         board.append(" ")
-    # Prompt user to choose between single player (vs ai), or 2 player, or let them exit
-    # Validate input, make sure it's good, if not then reprompt
-        # Should be pretty simple
-        # Type 1 for single, 2 for multi, q for quit?
-        # Check that user input matches one of the inputs you want
-    while True: # Maybe put this in a function
-        try:
-            gamemode = input("Enter 1 for single player, 2 for multi player, or q to quit ").strip()
-        except EOFError:
-            sys.exit("File exited")
-        if gamemode == "q":
-            sys.exit("Quitting game...")
-        elif gamemode == "1":
-            break
-        elif gamemode == "2":
-            break
-        else:
-            print("Invalid input")
-            continue
-    
-    # Prompt user for input for choosing position
-    # Validate input, make sure it's good, if not then reprompt
-        # Input position between 1-9 (maybe coordinates didn't decide yet)
-        # Check that the square doesn't already have an X or O in it!
-    while True:
-        if player_turn == 1:
-            print("Player 1 / X's turn to move")
-        else:
-            print("Player 2 / O's turn to move")
-        try:
-            choice = input("Choose a position from 1-9: ").strip()
-            choice = int(choice)
-        except ValueError:
-            print("Must input a number")
-            continue
-        except EOFError:
-            sys.exit("File exited")
-        # Check number is in range
-        if choice > 9 or choice < 1:
-            print("Number out of range")
-            continue
-        # Check if space is already taken
-        if board[choice - 1] == "X" or board[choice - 1] == "O":
-            print("Space already taken")
-            continue
-        # Add the choice to the board
-        if player_turn == 1:
-            board[choice - 1] = "X"
-            break
-        elif player_turn == 2:
-            board[choice - 1] = "O"
-            break
-        else:
-            sys.exit("Player turn out of bounds. Something went wrong")
-        
-    player_turn = switch_turn(player_turn)
-    display_board(board)
-    check_board()
 
+    while True: # Entire game active loop
+
+        # Prompt user to choose between single player (vs ai), or 2 player, or let them exit
+        # Validate input, make sure it's good, if not then reprompt
+            # Should be pretty simple
+            # Type 1 for single, 2 for multi, q for quit?
+            # Check that user input matches one of the inputs you want
+        while True: # Choose gamemode loop
+            try:
+                gamemode = input("Enter 1 for single player, 2 for multi player, or q to quit ").strip()
+            except EOFError:
+                sys.exit("File exited")
+            if gamemode == "q":
+                sys.exit("Quitting game...")
+            elif gamemode == "1":
+                break
+            elif gamemode == "2":
+                break
+            else:
+                print("Invalid input")
+                continue
+        
+        while True: 
+            # Prompt user for input for choosing position
+            # Validate input, make sure it's good, if not then reprompt
+                # Input position between 1-9 (maybe coordinates didn't decide yet)
+                # Check that the square doesn't already have an X or O in it!
+            while True: # Choose position loop
+                if player_turn == 1:
+                    print("Player 1 / X's turn to move")
+                else:
+                    print("Player 2 / O's turn to move")
+                try:
+                    choice = input("Choose a position from 1-9: ").strip()
+                    choice = int(choice)
+                except ValueError:
+                    print("Must input a number")
+                    continue
+                except EOFError:
+                    sys.exit("File exited")
+                # Check number is in range
+                if choice > 9 or choice < 1:
+                    print("Number out of range")
+                    continue
+                # Check if space is already taken
+                if board[choice - 1] == "X" or board[choice - 1] == "O":
+                    print("Space already taken")
+                    continue
+                # Add the choice to the board
+                if player_turn == 1:
+                    board[choice - 1] = "X"
+                    break
+                elif player_turn == 2:
+                    board[choice - 1] = "O"
+                    break
+                else:
+                    sys.exit("Player turn out of bounds. Something went wrong")
+                
+            player_turn = switch_turn(player_turn)
+            display_board(board)
+            result = check_board(board)
+            if result == 1 or result == 2:
+                break
+     
     
 
 
@@ -101,6 +107,7 @@ def display_board(board):
     line_two = "| " + board[3] + " | " + board[4] + " | " + board[5] + " |"
     line_three = "| " + board[6] + " | " + board[7] + " | " + board[8] + " |"
 
+    print(filled_line)
     print(empty_line)
     print(line_one)
     print(empty_line)
@@ -130,7 +137,7 @@ def board_update(): # Might not need this
         # Randomise on game start? Also display who's turn it currently is
     return
 
-def check_board():
+def check_board(board):
     # Check for 3 in a row
         # Probably a function for checking each direction: Vertical, Horizontal, Diagonal
     # Check for whole board being full
