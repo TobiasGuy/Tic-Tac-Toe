@@ -66,3 +66,10 @@ Fixed plan
 Preemptively made the return values for check_board when the game is supposed to end but commented them out for now
 Made checks accordingly to break out of the while True current game loop
 Added the logic to display the winner and start a new game again after 2 seconds
+
+#### 6 Check board function part 1
+First check is if the board is full
+Decided this was a bad idea because what if someone wins on the last turn (unlikely but possible?)
+Moved full board to be the last check instead
+Laid out the plan in comments for checking rows, columns, diagonals
+Final return means there is no reason to stop the game so it should continue

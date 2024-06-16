@@ -142,15 +142,31 @@ def board_update(): # Might not need this
     return
 
 def check_board(board):
+
     # Check for 3 in a row
-        # Probably a function for checking each direction: Vertical, Horizontal, Diagonal
-    # Check for whole board being full
-        # Loop through each position and if they're all full, call a draw
-    
+        # Check rows: 
+            # board[0] == board[1] == board[2]
+            # board[3] == board[4] == board[5]
+            # board[6] == board[7] == board[8]
+        
+        # Check columns:
+            # board[0] == board[3] == board[6]
+            # board[1] == board[4] == board[7]
+            # board[2] == board[5] == board[8]
+
+        # Check diagonals:
+            # board[0] == board[4] == board[8]
+            # board[2] == board[4] == board[6]
+
         # return("Player 1 wins!")
         # return("Player 2 wins!")
-        # return("Draw!)
-    return
+    
+    # Check for whole board being full
+        # Loop through each position and if they're all full, call a draw
+    if " " not in board:
+        return("Draw!")
+    
+    return("No winner found yet")
 
 def switch_turn(turn):
     # Keep track of who's turn it is, X and O respectively
